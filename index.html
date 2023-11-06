@@ -1,89 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Math.js Functions Demo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <title>Math.js Functions Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: white;
+      }
 
-    #container {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
+      #container {
+        width: 320px;
+        margin: auto;
+        height: 100%;
+        box-shadow: 0 8px 50px -7px black;
+        background: #3a4655;
+        padding: 5px;
+        border-radius: 10px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-    h1 {
-      color: #3498db;
-    }
+      h1 {
+        color: #3498db;
+        font-size: 20px;
+      }
 
-    p {
-      margin: 10px 0;
-    }
+      p {
+        margin: 5px 0;
+      }
 
-    input {
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+      input {
+        padding: 5px;
+        border: 1px solid #605d5d;
+        border-radius: 5px;
+        margin: 10px;
+      }
 
-    #results {
-      text-align: left;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  <div id="container">
-    <h1>Math.js Library Functions</h1>
-    <p>Enter numbers and click the buttons to calculate:</p>
+      #results {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid #27020250;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        margin-top: 15px;
+        width: 90%;
+      }
 
-    <label for="num1">Number 1:</label>
-    <input type="number" id="num1">
+      #btn{
+        margin: 10px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Math.js Library Functions</h1>
+      <!-- <p>Enter numbers and click the buttons to calculate:</p> -->
 
-    <label for="num2">Number 2:</label>
-    <input type="number" id="num2">
+      <!-- <label for="num1">Number 1:</label> -->
+      <input type="number" id="num1" placeholder="Enter Number 1" />
 
-    <div id="results">
-      <p>1. Add: <span id="result1">Result will appear here</span></p>
-      <p>2. Subtract: <span id="result2">Result will appear here</span></p>
-      <p>3. Multiply: <span id="result3">Result will appear here</span></p>
-      <p>4. Divide: <span id="result4">Result will appear here</span></p>
-      <p>5. Square Root of Number 1: <span id="result5">Result will appear here</span></p>
+      <!-- <label for="num2">Number 2:</label> -->
+      <input type="number" id="num2" placeholder="Enter Number 2"/>
+
+      <div id="results">
+        <p>1. Add: <span id="result1"></span></p>
+        <p>2. Subtract: <span id="result2"></span></p>
+        <p>3. Multiply: <span id="result3"></span></p>
+        <p>4. Divide: <span id="result4"></span></p>
+        <p>5. Sq Root of Num 1: <span id="result5"></span></p>
+      </div>
+
+      <button id="btn" onclick="calculate()">Calculate</button>
     </div>
 
-    <button onclick="calculate()">Calculate</button>
-  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.min.js"></script>
+    <script>
+      function calculate() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
 
-  <script>
-    function calculate() {
-      const num1 = parseFloat(document.getElementById('num1').value);
-      const num2 = parseFloat(document.getElementById('num2').value);
+        const result1 = math.add(num1, num2);
+        const result2 = math.subtract(num1, num2);
+        const result3 = math.multiply(num1, num2);
+        const result4 = math.divide(num1, num2);
+        const result5 = math.sqrt(num1);
 
-      const result1 = math.add(num1, num2);
-      const result2 = math.subtract(num1, num2);
-      const result3 = math.multiply(num1, num2);
-      const result4 = math.divide(num1, num2);
-      const result5 = math.sqrt(num1);
-
-      document.getElementById('result1').textContent = result1;
-      document.getElementById('result2').textContent = result2;
-      document.getElementById('result3').textContent = result3;
-      document.getElementById('result4').textContent = result4;
-      document.getElementById('result5').textContent = result5;
-    }
-  </script>
-</body>
+        document.getElementById("result1").textContent = result1;
+        document.getElementById("result2").textContent = result2;
+        document.getElementById("result3").textContent = result3;
+        document.getElementById("result4").textContent = result4;
+        document.getElementById("result5").textContent = result5;
+      }
+    </script>
+  </body>
 </html>
