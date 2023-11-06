@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math.js Functions Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #3498db;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Math.js Library Functions</h1>
+    <p>Click the buttons to demonstrate five Math.js functions:</p>
+
+    <p>1. Add: <span id="result1">Result will appear here</span></p>
+    <button onclick="addNumbers()">Calculate</button>
+
+    <p>2. Subtract: <span id="result2">Result will appear here</span></p>
+    <button onclick="subtractNumbers()">Calculate</button>
+
+    <p>3. Multiply: <span id="result3">Result will appear here</span></p>
+    <button onclick="multiplyNumbers()">Calculate</button>
+
+    <p>4. Divide: <span id="result4">Result will appear here</span></p>
+    <button onclick="divideNumbers()">Calculate</button>
+
+    <p>5. Square Root: <span id="result5">Result will appear here</span></p>
+    <button onclick="calculateSquareRoot()">Calculate</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.7/math.min.js"></script>
+  <script>
+    function addNumbers() {
+      const result = math.add(5, 7);
+      document.getElementById('result1').textContent = result;
+    }
+
+    function subtractNumbers() {
+      const result = math.subtract(10, 3);
+      document.getElementById('result2').textContent = result;
+    }
+
+    function multiplyNumbers() {
+      const result = math.multiply(4, 6);
+      document.getElementById('result3').textContent = result;
+    }
+
+    function divideNumbers() {
+      const result = math.divide(15, 3);
+      document.getElementById('result4').textContent = result;
+    }
+
+    function calculateSquareRoot() {
+      const result = math.sqrt(25);
+      document.getElementById('result5').textContent = result;
+    }
+  </script>
+</body>
+</html>
