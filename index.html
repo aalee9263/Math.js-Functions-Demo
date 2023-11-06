@@ -26,54 +26,63 @@
     p {
       margin: 10px 0;
     }
+
+    input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #results {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div id="container">
     <h1>Math.js Library Functions</h1>
-    <p>Click the buttons to demonstrate five Math.js functions:</p>
+    <p>Enter numbers and click the buttons to calculate:</p>
 
-    <p>1. Add: <span id="result1">Result will appear here</span></p>
-    <button onclick="addNumbers()">Calculate</button>
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1">
 
-    <p>2. Subtract: <span id="result2">Result will appear here</span></p>
-    <button onclick="subtractNumbers()">Calculate</button>
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2">
 
-    <p>3. Multiply: <span id="result3">Result will appear here</span></p>
-    <button onclick="multiplyNumbers()">Calculate</button>
+    <div id="results">
+      <p>1. Add: <span id="result1">Result will appear here</span></p>
+      <p>2. Subtract: <span id="result2">Result will appear here</span></p>
+      <p>3. Multiply: <span id="result3">Result will appear here</span></p>
+      <p>4. Divide: <span id="result4">Result will appear here</span></p>
+      <p>5. Square Root of Number 1: <span id="result5">Result will appear here</span></p>
+    </div>
 
-    <p>4. Divide: <span id="result4">Result will appear here</span></p>
-    <button onclick="divideNumbers()">Calculate</button>
-
-    <p>5. Square Root: <span id="result5">Result will appear here</span></p>
-    <button onclick="calculateSquareRoot()">Calculate</button>
+    <button onclick="calculate()">Calculate</button>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.7/math.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.min.js"></script>
+
   <script>
-    function addNumbers() {
-      const result = math.add(5, 7);
-      document.getElementById('result1').textContent = result;
-    }
+    function calculate() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
 
-    function subtractNumbers() {
-      const result = math.subtract(10, 3);
-      document.getElementById('result2').textContent = result;
-    }
+      const result1 = math.add(num1, num2);
+      const result2 = math.subtract(num1, num2);
+      const result3 = math.multiply(num1, num2);
+      const result4 = math.divide(num1, num2);
+      const result5 = math.sqrt(num1);
 
-    function multiplyNumbers() {
-      const result = math.multiply(4, 6);
-      document.getElementById('result3').textContent = result;
-    }
-
-    function divideNumbers() {
-      const result = math.divide(15, 3);
-      document.getElementById('result4').textContent = result;
-    }
-
-    function calculateSquareRoot() {
-      const result = math.sqrt(25);
-      document.getElementById('result5').textContent = result;
+      document.getElementById('result1').textContent = result1;
+      document.getElementById('result2').textContent = result2;
+      document.getElementById('result3').textContent = result3;
+      document.getElementById('result4').textContent = result4;
+      document.getElementById('result5').textContent = result5;
     }
   </script>
 </body>
